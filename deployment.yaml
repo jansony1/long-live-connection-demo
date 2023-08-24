@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longlivesample
+  labels:
+    app: longlivesample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: longlivesample
+  template:
+    metadata:
+      labels:
+        app: longlivesample
+    spec:
+      containers:
+      - name: longlivesample
+        image: public.ecr.aws/g7h5b4t5/longliveserver
+        ports:
+        - containerPort: 5000
